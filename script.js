@@ -31,6 +31,19 @@ function renderData(data) {
     }
 }
 
+const buttonContainer = document.querySelector('.btn-container');
+
+function renderMenu(){
+  let categories = ['all'];
+  result.forEach(menuItem=>{
+    if(!categories.includes(menuItem.category)){
+      categories.push(menuItem.category);
+    }
+  })
+  for(let element of categories){
+    buttonContainer.innerHTML += `<button class="filter-btn " type="button" data-id="${element}">${element}</button>`;
+  }
+}
 
 
 
