@@ -52,9 +52,14 @@ function renderButtons(arr) {
     //btn string setted as an inner html                    
     btnContainer.innerHTML = categoryBtns;
     const buttons = document.querySelectorAll('.filter-btn')
+    let currActive = document.querySelector('.filter-btn');
+    currActive.classList.add('active-btn');
     buttons.forEach(btn => {
         btn.addEventListener('click', (e) => {
             container.innerHTML = '';
+            currActive.classList.remove('active-btn');
+            currActive = e.target;
+            currActive.classList.add('active-btn')
             const id = e.target.dataset.id
             for (let item of arr) {
                 if (item.category === id) {
