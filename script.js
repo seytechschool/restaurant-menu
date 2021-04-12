@@ -73,9 +73,7 @@ search.addEventListener('keyup',(e)=>{
     menu.title.toLowerCase().includes(searchString) ||
     menu.desc.toLowerCase().includes(searchString)
     );
-
-  }
-  );
+ });
   renderData(foundMenu);
 
 });
