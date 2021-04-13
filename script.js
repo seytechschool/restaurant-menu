@@ -1,4 +1,3 @@
-//START Render Data AIZHAN
 let menu = []
 const sectionCenter = document.querySelector('.section-center');
 const container = document.querySelector('.btn-container');
@@ -36,10 +35,6 @@ function displayMenuItems(menuItems) {
   displayMenu = displayMenu.join("");
   sectionCenter.innerHTML = displayMenu;
 }
- //End Render Data Aizhan
-
-
- //Start Render Menu Nazira
 function displayMenuButtons() {
   const categories = menu.reduce(function (values, item) {
     if (!values.includes(item.category)) {
@@ -54,51 +49,30 @@ function displayMenuButtons() {
     .join("");
   container.innerHTML = categoryBtns;
   const filterBtns = document.querySelectorAll('.filter-btn');
- 
- //End Render Menu Nazira
-
-
- //Start Active Menu Indi
- filterBtns.forEach(function (btn) {
-  btn.addEventListener('click', function (e) {
-    removeActiveClassFromButtons(filterBtns);
-    btn.className += " active";
-  })
-});
+  filterBtns.forEach(function (btn) {
+    btn.addEventListener('click', function (e) {
+      removeActiveClassFromButtons(filterBtns);
+      btn.className += " active";
+      filterBtns.forEach(function (btn) {
+        btn.addEventListener('click', function (e) {
+          const category = e.currentTarget.dataset.id;
+          const menuCategory = menu.filter(function (menuItem) {
+            if (menuItem.category === category) {
+              return menuItem;
+            }
+          });
+          if (category === 'all') {
+            displayMenuItems(menu)
+          } else {
+            displayMenuItems(menuCategory);
+          }
+        });
+      });
+    })
+  });
 }
 function removeActiveClassFromButtons(filterBtns) {
-filterBtns.forEach(function (btn) {
-  btn.className = btn.className.replace(" active", "");
-})
+  filterBtns.forEach(function (btn) {
+    btn.className = btn.className.replace(" active", "");
+  })
 }
-
- //End Active Menu Indi
-
-
- //Start Filter Func Jama
-
- //End Filter Func Jama
-
-
- //Start Search Func Nazira
-
- //End Search Func Nazira
-
-
- //Start Search by Features Aizhan
-
- //End Search by Features Aizhan
-
-
- //Start Filter by Price Indi
-
- //End Filter by price Indi
-
-
- //Start Add Card Eliza
-
- //End Add Card Eliza
-
-
-
-
