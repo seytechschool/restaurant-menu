@@ -36,7 +36,57 @@ function displayMenuItems(menuItems) {
   displayMenu = displayMenu.join("");
   sectionCenter.innerHTML = displayMenu;
 }
- //END Render Data AIZHAN
+ //End Render Data Aizhan
+
+
+ //Start Render Menu Nazira
+function displayMenuButtons() {
+  const categories = menu.reduce(function (values, item) {
+    if (!values.includes(item.category)) {
+      values.push(item.category);
+    }
+    return values;
+  },
+    ['all']);
+  const categoryBtns = categories.map(function (category) {
+    return `<button class="filter-btn" type="button" data-id=${category}>${category}</button>`;
+  })
+    .join("");
+  container.innerHTML = categoryBtns;
+  const filterBtns = document.querySelectorAll('.filter-btn');
+ } 
+ //End Render Menu Nazira
+
+
+ //Start Active Menu Indi
+
+ //End Active Menu Indi
+
+
+ //Start Filter Func Jama
+
+ //End Filter Func Jama
+
+
+ //Start Search Func Nazira
+
+ //End Search Func Nazira
+
+
+ //Start Search by Features Aizhan
+
+ //End Search by Features Aizhan
+
+
+ //Start Filter by Price Indi
+
+ //End Filter by price Indi
+
+
+ //Start Add Card Eliza
+
+ //End Add Card Eliza
+
 
 
 
