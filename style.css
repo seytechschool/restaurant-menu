@@ -156,6 +156,8 @@ p {
   color: var(--clr-white);
   background: var(--clr-black);
 }
+
+
 /* section */
 .section {
   padding: 5rem 0;
@@ -208,6 +210,8 @@ Menu
   background: var(--clr-gold);
   color: var(--clr-white);
 }
+
+
 .section-center {
   width: 90vw;
   margin: 0 auto;
@@ -262,3 +266,32 @@ Menu
     height: 150px;
   }
 }
+
+.search{
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 35px;
+}
+.search-input{
+  background: transparent;
+  padding: 0.350rem 0.95rem;
+  font-size: 0.875rem;
+  border:solid 2px #c59d5f;
+  cursor: pointer;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  border-radius: var(--radius);
+  width:30%;
+  margin-right: 5px;
+}
+.search-btn{
+  padding:5px;
+  border-radius: var(--radius);
+  color:var(--clr-gold);
+  font-size:0.875rem;
+  border:solid 2px #c59d5f;
+}
+.search-btn{
+  color: var(--clr-white);
+  background: var(--clr-gold);
+} 
