@@ -156,6 +156,7 @@ p {
   color: var(--clr-white);
   background: var(--clr-black);
 }
+
 /* section */
 .section {
   padding: 5rem 0;
@@ -208,6 +209,13 @@ Menu
   background: var(--clr-gold);
   color: var(--clr-white);
 }
+
+
+.active {
+  background: var(--clr-gold);
+  color: var(--clr-white)
+}
+
 .section-center {
   width: 90vw;
   margin: 0 auto;
