@@ -17,16 +17,15 @@ Dynamic Restaurant Menu app in javascript.
   3. [Github](https://pages.github.com/)
 
 # Tasks
-
-1. Define points for each task add into your readme file. [Issue #5](https://github.com/seytechschool/restaurant-menu/issues/5)
-2. Render data [Issue #1](https://github.com/seytechschool/restaurant-menu/issues/1). [Api Url](https://gist.githubusercontent.com/maratgaip/44060c688fcf5f2b7b3985a6d15fdb1d/raw/e93c3dce0826d08c8c6e779cb5e6d9512c8fdced/restaurant-menu.json)
-3. Render menu [Issue #2](https://github.com/seytechschool/restaurant-menu/issues/2)
-4. Show Active menu [Issue #6](https://github.com/seytechschool/restaurant-menu/issues/6)
-5. Filter functionality [Issue #3](https://github.com/seytechschool/restaurant-menu/issues/3)
-6. Search functionality [Issue #4](https://github.com/seytechschool/restaurant-menu/issues/4)
-7. Search by feature. [Issue #7](https://github.com/seytechschool/restaurant-menu/issues/7)
-8. Filter by price feature. [Issue #8](https://github.com/seytechschool/restaurant-menu/issues/8)
-9. Add to card feature. [Issue #9](https://github.com/seytechschool/restaurant-menu/issues/9)
+1. Define points for each task add into your readme file. [Issue #5](https://github.com/ seytechschool/restaurant-menu/issues/5) - 1 point
+2. Render data [Issue #1](https://github.com/seytechschool/restaurant-menu/issues/1). [Api Url](https://gist.githubusercontent.com/maratgaip/44060c688fcf5f2b7b3985a6d15fdb1d/raw/e93c3dce0826d08c8c6e779cb5e6d9512c8fdced/restaurant-menu.json) - 5 points
+3. Render menu [Issue #2](https://github.com/seytechschool/restaurant-menu/issues/2) - 5 points
+4. Show Active menu [Issue #6](https://github.com/seytechschool/restaurant-menu/issues/6) - 3 points
+5. Filter functionality [Issue #3](https://github.com/seytechschool/restaurant-menu/issues/3) - 5 points
+6. Search functionality [Issue #4](https://github.com/seytechschool/restaurant-menu/issues/4) - 8 points
+7. Search by feature. [Issue #7](https://github.com/seytechschool/restaurant-menu/issues/7) - 8 points
+8. Filter by price feature. [Issue #8](https://github.com/seytechschool/restaurant-menu/issues/8) - 13 points
+9. Add to card feature. [Issue #9](https://github.com/seytechschool/restaurant-menu/issues/9) - 13 points
 
 # Screenshot
 
