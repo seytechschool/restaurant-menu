@@ -54,11 +54,23 @@ function displayMenuButtons() {
     .join("");
   container.innerHTML = categoryBtns;
   const filterBtns = document.querySelectorAll('.filter-btn');
- } 
+ 
  //End Render Menu Nazira
 
 
  //Start Active Menu Indi
+ filterBtns.forEach(function (btn) {
+  btn.addEventListener('click', function (e) {
+    removeActiveClassFromButtons(filterBtns);
+    btn.className += " active";
+  })
+});
+}
+function removeActiveClassFromButtons(filterBtns) {
+filterBtns.forEach(function (btn) {
+  btn.className = btn.className.replace(" active", "");
+})
+}
 
  //End Active Menu Indi
 
