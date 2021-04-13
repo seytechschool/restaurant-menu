@@ -1,3 +1,6 @@
+DEMO: 
+distracted-edison-fe9d34.netlify.app
+
 # Restaurant Menu
 
 Dynamic Restaurant Menu app in javascript.
