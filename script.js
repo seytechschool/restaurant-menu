@@ -4,7 +4,7 @@ const buttons = document.querySelector('.btn-container');
 const searchBar = document.querySelector('#searchBar');
 
 let menu = [];
-async function getData(){
+const getData = async () => {
     const response = await fetch('https://gist.githubusercontent.com/maratgaip/44060c688fcf5f2b7b3985a6d15fdb1d/raw/e93c3dce0826d08c8c6e779cb5e6d9512c8fdced/restaurant-menu.json');
     data = await response.json();
     return data;
@@ -14,7 +14,7 @@ getData().then(data => {
     renderData(data);
     renderMenu();
 });
-function renderData(data){
+const renderData = data => {
     container.innerHTML = '';
     for(let item of data){
         container.innerHTML += 
@@ -31,7 +31,7 @@ function renderData(data){
     }
 }
 
-function renderMenu(){
+const renderMenu = () => {
     let categories = ['all'];
     menu.forEach(menuItem => {
         if(!categories.includes(menuItem.category)){
@@ -44,7 +44,7 @@ function renderMenu(){
     })
 }
 
-function filterButtonHander(event){
+const filterButtonHander = event => {
     if(event.target.tagName !== 'BUTTON') return;
 
     let filterBy = event.target.dataset.id;
@@ -58,3 +58,4 @@ function filterButtonHander(event){
     document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('filter-active'));
     event.target.classList.add('filter-active');
 }
+
