@@ -1,4 +1,6 @@
 const menuDisplay = document.querySelector('.section-center')
+const filterBtns = document.querySelectorAll('.filter-btn');
+let prevActive = filterBtns[0]
 
 //fetching API
 window.addEventListener("DOMContentLoaded",() => {
@@ -27,3 +29,18 @@ function renderData(menuItems){
     menuData = menuData.join('')
     menuDisplay.innerHTML = menuData
 }
+
+
+// adding "Active" to a current className
+function changeClass(currentEl){  
+  let newClass = prevActive.className.split(' ')[0];         
+  prevActive.className = newClass; 
+  currentEl.className += ' active';  
+  prevActive = currentEl;             
+} 
+
+filterBtns.forEach(btn => {
+  btn.addEventListener('click', function(e){
+    changeClass(e.currentTarget)
+  })
+})
