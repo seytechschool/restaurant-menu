@@ -31,3 +31,18 @@ Dynamic Restaurant Menu app in javascript.
 # Screenshot
 
 ![Screenshot](./images/screenshot.png)
+
+# Task Points Team 4
+
+1. Creating readme file - *3p*;
+2. Render data - *3p*;  
+3. Render menu - *5p*; 
+4. Show Active menu - *5p*;
+5. Filter functionality - *5p*;
+6. Search functionality - *5p*; 
+7. Search by feature - *5p*; 
+8. Filter by price feature - *5p*;
+9. Add to card feature - *5p*;
+
+## Project URL hosted on Netlify 
+https://zealous-einstein-15b8dc.netlify.app/
