@@ -1,5 +1,5 @@
 DEMO: 
-distracted-edison-fe9d34.netlify.app
+https://distracted-edison-fe9d34.netlify.app/
 
 # Restaurant Menu
 
