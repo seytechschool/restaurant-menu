@@ -31,3 +31,16 @@ Dynamic Restaurant Menu app in javascript.
 # Screenshot
 
 ![Screenshot](./images/screenshot.png)
+
+
+1. Define points for each task & add into your readme file. Issue #5 --> 1 point
+2. Render data Api Url Issue #1.  --> 2 points
+3. Render menu Issue #2 --> 1 point
+4. Show Active menu Issue #6 --> 1 point
+5. Filter functionality Issue #3 --> 4 points
+6. Search functionality Issue #4 --> 4 points
+7. Search by feature. Issue #7 --> 3 points
+8. Filter by price feature. Issue #8 --> 2 points
+9. Add to card feature. Issue #9 --> 4 points
+
+// 22 points total
