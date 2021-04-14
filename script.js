@@ -3,6 +3,7 @@ const buttonsContainer = document.querySelector('.btn-container');
 const searchInput = document.querySelector('.search-input');
 const maxPriceInput = document.querySelector('.max-price');
 const minPriceInput = document.querySelector('.min-price');
+
 let menu = [];
 
 // Made "categories" variable global to be able to use it everywhere.
