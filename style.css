@@ -247,7 +247,18 @@ Menu
   margin-bottom: 0;
   padding-top: 1rem;
 }
-
+/* inputs */
+.searchDiv {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+.searchDiv input{
+  margin: 20px;
+  padding: 10px 20px;
+  width: 300px;
+  border-radius: 10px;
+}
 @media screen and (min-width: 768px) {
   .menu-item {
     grid-template-columns: 225px 1fr;
