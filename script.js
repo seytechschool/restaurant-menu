@@ -97,16 +97,17 @@ priceBtn.addEventListener('click', function () {
 })
 let searchBtn = document.querySelector('#search-btn');
 let inputValue = document.querySelector('#search-input');
+inputValue.addEventListener('input', searchFilter);
 
-inputValue.addEventListener('keyup', searchFilt)
-function searchFilt(e) {
-
-   let val = inputValue.value
-   let searchByName = menu.filter((item) => {
-      item.title.toLowerCase().includes(val.toLowerCase()) ||
-         item.desc.toLowerCase().includes(val.toLowerCase());
-      console.log(inputValue.value)
- });
-   displayMenuItems(searchByName)
+function searchFilter(e) {
+   let val = inputValue.value.trim().toLowerCase();
+   if (val) {
+      let searchByName = menu.filter(item =>
+         item.title.toLowerCase().includes(val) || item.desc.toLowerCase().includes(val)
+      );
+      displayMenuItems(searchByName);
+   }
+   else {
+      displayMenuItems(menu);
+   }
 }
-
