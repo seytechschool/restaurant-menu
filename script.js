@@ -35,6 +35,8 @@ const addAllEventListeners = () => {
     minPriceInput.addEventListener('change', handleSetPrice);
     buttonsContainer.addEventListener('click', handleFilter);
     searchInput.addEventListener('keyup', handleSearch);
+    maxPriceInput.addEventListener('change', handleSetPrice);
+    minPriceInput.addEventListener('change', handleSetPrice);
 }
 
 // "renderMenu" function only renders menu with foods.
@@ -110,22 +112,17 @@ const handleSearch = event => {
 	}
 }
 
-const handleSetPrice = event => {
-
-    if (event.target.matches('.max-price') || event.target.matches('.min-price')) {
-        let minPrice = minPriceInput.value || 0;
-        let maxPrice = maxPriceInput.value || Infinity;
-        if (minPrice >= maxPrice) {
-            alert("The max price can't be less than or equal to min price")
-        }
-        else {
+    const handleSetPrice = event => {
+        if (event.target.matches('.min-price') || event.target.matches('.max-price')) {
+            let minPrice = minPriceInput.value || 0;
+            let maxPrice = maxPriceInput.value || Infinity;
             let filteredMenu = menu.filter(menuItem => {
-                return menuItem.price >= minPrice || menuItem.price <= maxPrice;
+                return menuItem.price > minPrice && menuItem.price < maxPrice;
             })
             renderMenu(filteredMenu);
         }
     }
-}
+    
 
 const startApp = async () => {
     await getData();
@@ -135,6 +132,4 @@ const startApp = async () => {
     addAllEventListeners();
 }
 startApp();
-
-
 
