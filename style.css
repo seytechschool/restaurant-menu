@@ -284,14 +284,3 @@ Menu
   width:30%;
   margin-right: 5px;
 }
-.search-btn{
-  padding:5px;
-  border-radius: var(--radius);
-  color:var(--clr-gold);
-  font-size:0.875rem;
-  border:solid 2px #c59d5f;
-}
-.search-btn{
-  color: var(--clr-white);
-  background: var(--clr-gold);
-} 
