@@ -1,7 +1,6 @@
 const menuContainer = document.querySelector('.section-center');
 const buttonsContainer = document.querySelector('.btn-container');
 const searchInput = document.querySelector('.search-input');
-const searchButton = document.querySelector('.search-btn');
 
 let menu = [];
 
@@ -30,7 +29,7 @@ const setCategories = () => {
 // adding all event listeners inside one function.
 const addAllEventListeners = () => {
     buttonsContainer.addEventListener('click', handleFilter);
-    searchButton.addEventListener('click', handleSearch);
+    searchInput.addEventListener('keyup', handleSearch);
 }
 
 // "renderMenu" function only renders menu with foods.
@@ -87,7 +86,7 @@ const handleFilter = event => {  // Changed the name of function because functio
 
 
 const handleSearch = event => {
-	if (event.target.matches('.search-btn')) {
+	if (event.target.matches('.search-input')) {
         let keyword = searchInput.value.toLowerCase();
         let selectedCategory = document.querySelector('.filter-active').dataset.id;
         let filteredMenu;
