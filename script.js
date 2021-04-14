@@ -7,7 +7,6 @@ async function loadDataOnLoad() {
   result = await getData();
   renderData(result);
   renderMenu();
-  renderData(foundMenu);
 }
 async function getData() {
   const response = await fetch('https://gist.githubusercontent.com/maratgaip/44060c688fcf5f2b7b3985a6d15fdb1d/raw/e93c3dce0826d08c8c6e779cb5e6d9512c8fdced/restaurant-menu.json');
@@ -27,9 +26,13 @@ function renderData(data) {
           <p class="item-text">
             ${item.desc}
           </p>
+          <button class='add-to-cart' id='${item.id}' onclick='addToCardHandler(window.event)'>Add to cart</button>
         </div>
       </article>`
   }
+}
+function addToCardHandler(event){
+
 }
 
 const buttonContainer = document.querySelector('.btn-container');
@@ -93,4 +96,7 @@ filterPrice.addEventListener('click',()=>{
   renderData(filteredPrice);
  })
 
+function addToCardHandler(event){ //add to cart functionality
+  
+}
 
