@@ -2,7 +2,7 @@ const container = document.querySelector('.section-center');
 const btnContainer = document.querySelector('.btn-container');
 const foundEl = document.querySelector('#found');
 const total = document.querySelector('.total');
-let data = []
+let data = [];
 let filtered = [];
 /* Spinner */
 foundEl.innerHTML = 'loading...'
@@ -27,7 +27,7 @@ function renderData(arr) {
             <h4 class="price">${item.price}</h4>
             </header>
             <p class="item-text">${item.desc}</p>
-            <button class="add-cart" data-id="${item.id}">Add To Cart</button>
+            <button class="add-cart filter-btn" data-id="${item.id}">Add To Cart</button>
         </div>
         </article>`;
     }
