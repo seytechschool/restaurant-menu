@@ -1,13 +1,21 @@
 let menuItems = []
+let cart = []
 const sectionCenter = document.querySelector('.section-center');
 const container = document.querySelector('.btn-container');
+const btnCart = document.getElementById('btnCart');
+const divCart = document.getElementById('cart');
+const closeSpan = document.querySelector(".close");
+const clearCartBtn = document.querySelector('.clear-cart');
+
 window.addEventListener('DOMContentLoaded', function () {
    try {
       fetchMenuFromApi().then(menuItemsData => {
-         displayMenuItems(menuItemsData);
          menuItems = menuItemsData;
+         displayMenuItems(menuItems);
          displayMenuButtons();
-      });
+         renderCartTotal();
+         setupCart();
+        });
    } catch (error) {
       console.log('Fetch error:', error);
    }
@@ -17,24 +25,100 @@ async function fetchMenuFromApi() {
    const menuItemsData = await response.json()
    return menuItemsData;
 }
+
+function setupCart() {
+   btnCart.addEventListener('click', function(e) {
+      renderCartTable();
+   })
+
+   closeSpan.addEventListener('click', function(e) {
+      divCart.style.display = 'none';
+   })
+   
+   window.addEventListener('click', function(event) {
+      if (event.target == divCart) {
+         divCart.style.display = "none";
+      }
+   })
+
+   clearCartBtn.addEventListener('click', function(e) {
+      cart = [];
+      renderCartTotal();
+   })
+}
+
+function renderCartTable() {
+   divCart.style.display = 'block';
+   const tblCart = document.getElementById("tblCart");
+   const tblBody = tblCart.getElementsByTagName("tbody")[0];
+
+   const newTblBody = document.createElement('tbody');
+   
+   let subTotal = 0;
+   cart.forEach(cartItem => {
+      let newRow = newTblBody.insertRow();
+      let titleCell = newRow.insertCell(0);
+      let quantityCell = newRow.insertCell(1);
+      let priceCell = newRow.insertCell(2);
+      let totalCell = newRow.insertCell(3);
+
+      titleCell.innerHTML = cartItem.menuItem.title;
+      quantityCell.innerHTML = cartItem.quantity;
+      priceCell.innerHTML = cartItem.menuItem.price;
+      totalCell.innerHTML = cartItem.quantity * cartItem.menuItem.price;
+      subTotal += cartItem.quantity * cartItem.menuItem.price;
+   })
+
+   tblCart.replaceChild(newTblBody, tblBody);
+
+   const subTotalEl = document.getElementById('subTotal');
+   subTotalEl.innerHTML = subTotal;
+}
+
 function displayMenuItems(menuItems) {
    let displayMenu = menuItems.map(function (item) {
-      return `<article class="menu-item">
+      return `
+         <article class="menu-item">
             <img src=${item.img} class="photo" alt=${item.title}/>
             <div class="item-info">
-            </header>
             <h4>${item.title}</h4>
             <h4 class="price">$${item.price}</h4>
-            </header>
             <p class="item-text">
-            ${item.desc}
+               ${item.desc}
             </p>
             </div>
-            </article>`;
+            <button class="btn-add-cart" data-id=${item.id}>Add to cart</button>
+         </article>
+            `;
    });
    displayMenu = displayMenu.join("");
    sectionCenter.innerHTML = displayMenu;
+   setupAddCartButtons();
 }
+
+function setupAddCartButtons() {
+   const addToCartButtons = document.querySelectorAll('.btn-add-cart');
+   addToCartButtons.forEach( function (btn) {
+      btn.addEventListener('click', function(e) {
+         let menuItem = menuItems.find(m=> m.id == btn.dataset.id);
+         
+         let alreadyAddedMenuItem = cart.find(c=>c.menuItem.id == menuItem.id);
+         if (alreadyAddedMenuItem) {
+            alreadyAddedMenuItem.quantity ++;
+         } else {
+            cart.push({menuItem: menuItem, quantity: 1});
+         }
+         renderCartTotal();
+      })
+   })
+}
+
+function renderCartTotal() {
+   const cartTotal = document.querySelector('.total-count');
+   let totalItems = cart.reduce((acc, curr) => acc + curr.quantity, 0);
+   cartTotal.innerText = totalItems;
+}
+
 function displayMenuButtons() {
    const categories = menuItems.reduce(function (values, item) {
       if (!values.includes(item.category)) {
@@ -63,13 +147,13 @@ function removeActiveClassFromButtons(filterBtns) {
       btn.className = btn.className.replace(" active", "");
    })
 }
-let minPrice = document.querySelector('.min-price');
-let maxPrice = document.querySelector('.max-price');
-let priceBtn = document.querySelector('.price-btn');
+const minPrice = document.querySelector('.min-price');
+const maxPrice = document.querySelector('.max-price');
+const priceBtn = document.querySelector('.price-btn');
 priceBtn.addEventListener('click', function () {
-   let min = Number(minPrice.value)
-   let max = Number(maxPrice.value)
-   let range = menuItems.filter(item => {
+   const min = Number(minPrice.value)
+   const max = Number(maxPrice.value)
+   const range = menuItems.filter(item => {
       if (item.price > min && item.price < max) {
          return item
       } else if (item.price > min && max == "") {
