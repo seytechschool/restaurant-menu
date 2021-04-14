@@ -76,7 +76,7 @@ search.addEventListener('keyup',(e) => {
   const foundMenu = filteredResult.filter(menu => {
     return(menu.title.toLowerCase().includes(searchString) || menu.desc.toLowerCase().includes(searchString));
   });
-
+  
   renderData(foundMenu);
 });
 
