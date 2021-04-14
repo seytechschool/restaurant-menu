@@ -38,7 +38,6 @@ function displayMenuItems(menuItems) {
 }
  //End Render Data Aizhan
 
-
  //Start Render Menu Nazira
 function displayMenuButtons() {
   const categories = menu.reduce(function (values, item) {
@@ -54,7 +53,6 @@ function displayMenuButtons() {
     .join("");
   container.innerHTML = categoryBtns;
   const filterBtns = document.querySelectorAll('.filter-btn');
- } 
  //End Render Menu Nazira
 
 
@@ -84,7 +82,7 @@ function displayMenuButtons() {
 
 
  //Start Add Card Eliza
-
+ 
  //End Add Card Eliza
 
 
