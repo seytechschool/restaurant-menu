@@ -284,3 +284,19 @@ Menu
   width:30%;
   margin-right: 5px;
 }
+
+.filter-price {
+  display: flex;
+  justify-content: center;
+}
+.max-price, .min-price{
+  background: transparent;
+  padding: 0.350rem 0.95rem;
+  font-size: 0.875rem;
+  border:solid 2px #c59d5f;
+  cursor: pointer;
+  width: 125px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  border-radius: var(--radius);
+  margin: 0 10px 35px;
+}
