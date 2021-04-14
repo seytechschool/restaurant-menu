@@ -1,9 +1,9 @@
 let result = [];
-let center = document.querySelector('.section-center');
+const menuDisplay = document.querySelector('.section-center');
 const filterBtns = document.querySelectorAll('.filter-btn');
 let prevActive = filterBtns[0]
-let searchIcon = document.querySelector(".fa");
-let searchEl = document.querySelector('#search')
+const searchIcon = document.querySelector(".fa");
+const searchEl = document.querySelector('#search')
 
 window.addEventListener('DOMContentLoaded', function(){
     fetch('https://gist.githubusercontent.com/maratgaip/44060c688fcf5f2b7b3985a6d15fdb1d/raw/e93c3dce0826d08c8c6e779cb5e6d9512c8fdced/restaurant-menu.json')
@@ -28,7 +28,7 @@ function renderData(menuItem){
     </article>`
     })
     menuData = menuData.join('');
-    center.innerHTML = menuData;
+    menuDisplay.innerHTML = menuData;
 }
 //Show Active menu Issue #6
 function changeClass(currentEl){
@@ -61,11 +61,13 @@ function onSearch(){
     //searching input value
     let val = searchEl.value;
     //creating new array of found elements
-    const foundItems = result.filter(item=>item.title.toLowerCase().includes(val.toLowerCase()) || item.desc.toLowerCase().includes(val.toLowerCase()))
+    const foundItems = result.filter(item => item.title.toLowerCase().includes(val.toLowerCase()) ||
+                                     item.desc.toLowerCase().includes(val.toLowerCase()))
     //building DOM again based on found items
     renderData(foundItems)
     searchEl.value = '';
     
 }
 
-//filter by price
+
+
