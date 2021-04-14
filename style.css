@@ -182,7 +182,7 @@ Menu
 }
 .search-function {
   background-color: #c59d5f;
-  width: 500px;
+  width: 601px;
   margin: auto;
   padding: 8px;
   border-radius: 8px;
@@ -193,12 +193,19 @@ input {
   border: none;
   border-radius: 4px;
 }
+#search-options {
+  font-size: 12px;
+  border: 3px solid #dda03f;
+  border-radius: 8px;
+  background-color: #fff;
+}
 #search-btn {
   padding: 6px 10px;
   margin-left: 10px;
   border: 3px solid #dda03f;
   border-radius: 8px;
-  background-color: #fff;
+  background-color: rgba(61, 29, 3, 0.842);
+  color: #fff;
   cursor: pointer;
 }
 .btn-container {
