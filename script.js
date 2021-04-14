@@ -101,3 +101,23 @@ function filterInput(arr, searchItem){
          }
      }
  }
+ //Price inputs
+ const priceContainer = document.querySelector(".price");
+ numberS = priceContainer.querySelectorAll("input[type=number]");
+ numberS.forEach(number=>{
+     number.addEventListener('keyup', filterByPrice)
+ function filterByPrice(){
+     container.innerHTML='';
+     let min = Number(numberS[0].value);
+     let max = Number(numberS[1].value);
+     if(filtered){
+         let filterByPrice = filtered.filter(item => {
+             return (item.price < max && item.price > min); 
+         })
+         renderData(filterByPrice)
+         if(numberS[0].value === '' && numberS[1].value===''){
+            renderData(filtered)
+        }
+     }
+}
+})
