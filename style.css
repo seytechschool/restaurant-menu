@@ -266,10 +266,6 @@ input {
 }
 .item-text {
   margin-bottom: 0;
-  padding-top: 1rem;
-}
-.filter-price {
-  margin-left: 50px;
 }
 .price-btn {
   text-transform: capitalize;
@@ -298,6 +294,41 @@ input {
   background-color: #fff;
   color: #c59d5f;
 }
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 5rem;
+}
+.btn {
+  width: 71px;
+  padding: 6px 10px;
+  margin-left: 10px;
+  border: 0.5px solid#c59d5f;
+  border-radius: 4px;
+  background-color: #c59d5f;
+  color: #f1f5f8;
+  font-size: 0.6rem;
+}
+.btn-add-cart {
+  border: 2px solid #c59d5f;
+  border-radius: 7px;
+  background-color: #c59d5f;
+  color: #fff;
+  padding: 8px;
+  width: 100px;
+  margin-left: 7.5rem;
+  margin-top: 5px;
+}
+.clear-cart:hover, .btn-primary:hover {
+  background-color: #f1f5f8;
+  color: #c59d5f;
+}
+.clear-cart {
+  background-color: #3b2402;
+}
+.show-cart li {
+  display: flex;
+}
 ::placeholder{
   color: var(--clr-gold);
 }
@@ -319,4 +350,86 @@ input {
   .photo {
     height: 150px;
   }
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: #000000;
+  background-color: #00000066;
+}
+
+.modal-content {
+  position: relative;
+  background-color: #fefefe;
+  margin:auto;
+  padding: 0;
+  border: 1px solid #888;
+  width: 80%;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+  -webkit-animation-name: animatetop;
+  -webkit-animation-duration: 0.4s;
+  animation-name: animatetop;
+  animation-duration: 0.4s
+}
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+  from {top:-300px; opacity:0} 
+  to {top:0; opacity:1}
+}
+
+@keyframes animatetop {
+  from {top:-300px; opacity:0}
+  to {top:0; opacity:1}
+}
+
+/* The Close Button */
+.close {
+  color: white;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modal-header {
+  padding: 2px 16px;
+  background-color: #b38404a8;
+  color: white;
+}
+
+.modal-body {padding: 2px 16px;}
+
+.modal-footer {
+  padding: 2px 16px;
+  background-color: #b38404a8;
+  color: #080808;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(event) {
+  background-color: #f2f2f2;
 }
