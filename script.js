@@ -1,6 +1,8 @@
 const menuContainer = document.querySelector('.section-center');
 const buttonsContainer = document.querySelector('.btn-container');
 const searchInput = document.querySelector('.search-input');
+const maxPriceInput = document.querySelector('.max-price');
+const minPriceInput = document.querySelector('.min-price');
 
 let menu = [];
 
@@ -30,6 +32,8 @@ const setCategories = () => {
 const addAllEventListeners = () => {
     buttonsContainer.addEventListener('click', handleFilter);
     searchInput.addEventListener('keyup', handleSearch);
+    maxPriceInput.addEventListener('change', handleSetPrice);
+    minPriceInput.addEventListener('change', handleSetPrice);
 }
 
 // "renderMenu" function only renders menu with foods.
@@ -105,6 +109,18 @@ const handleSearch = event => {
 	}
 }
 
+    const handleSetPrice = event => {
+        if (event.target.matches('.min-price') || event.target.matches('.max-price')) {
+            let minPrice = minPriceInput.value || 0;
+            let maxPrice = maxPriceInput.value || Infinity;
+            let filteredMenu = menu.filter(menuItem => {
+                return menuItem.price > minPrice && menuItem.price < maxPrice;
+            })
+            renderMenu(filteredMenu);
+        }
+    }
+    
+
 const startApp = async () => {
     await getData();
     setCategories();
@@ -113,3 +129,4 @@ const startApp = async () => {
     addAllEventListeners();
 }
 startApp();
+
