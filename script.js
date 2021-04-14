@@ -1,11 +1,11 @@
-let menu = []
+let menuItems = []
 const sectionCenter = document.querySelector('.section-center');
 const container = document.querySelector('.btn-container');
 window.addEventListener('DOMContentLoaded', function () {
    try {
-      fetchMenuFromApi().then(menuItems => {
-         displayMenuItems(menuItems);
-         menu = menuItems;
+      fetchMenuFromApi().then(menuItemsData => {
+         displayMenuItems(menuItemsData);
+         menuItems = menuItemsData;
          displayMenuButtons();
       });
    } catch (error) {
@@ -14,8 +14,8 @@ window.addEventListener('DOMContentLoaded', function () {
 });
 async function fetchMenuFromApi() {
    const response = await fetch('https://gist.githubusercontent.com/maratgaip/44060c688fcf5f2b7b3985a6d15fdb1d/raw/e93c3dce0826d08c8c6e779cb5e6d9512c8fdced/restaurant-menu.json')
-   const menuItems = await response.json()
-   return menuItems;
+   const menuItemsData = await response.json()
+   return menuItemsData;
 }
 function displayMenuItems(menuItems) {
    let displayMenu = menuItems.map(function (item) {
@@ -36,7 +36,7 @@ function displayMenuItems(menuItems) {
    sectionCenter.innerHTML = displayMenu;
 }
 function displayMenuButtons() {
-   const categories = menu.reduce(function (values, item) {
+   const categories = menuItems.reduce(function (values, item) {
       if (!values.includes(item.category)) {
          values.push(item.category);
       }
@@ -51,23 +51,10 @@ function displayMenuButtons() {
    const filterBtns = document.querySelectorAll('.filter-btn');
    filterBtns.forEach(function (btn) {
       btn.addEventListener('click', function (e) {
+         searchInput.value = "";
          removeActiveClassFromButtons(filterBtns);
          btn.className += " active";
-         filterBtns.forEach(function (btn) {
-            btn.addEventListener('click', function (e) {
-               const category = e.currentTarget.dataset.id;
-               const menuCategory = menu.filter(function (menuItem) {
-                  if (menuItem.category === category) {
-                     return menuItem;
-                  }
-               });
-               if (category === 'all') {
-                  displayMenuItems(menu)
-               } else {
-                  displayMenuItems(menuCategory);
-               }
-            });
-         });
+         renderMenuItems();
       })
    });
 }
@@ -82,32 +69,61 @@ let priceBtn = document.querySelector('.price-btn');
 priceBtn.addEventListener('click', function () {
    let min = Number(minPrice.value)
    let max = Number(maxPrice.value)
-   let range = menu.filter(item => {
+   let range = menuItems.filter(item => {
       if (item.price > min && item.price < max) {
          return item
       } else if (item.price > min && max == "") {
          return item
       }
-      console.log(menu)
+      console.log(menuItems)
    })
    minPrice.value == ''
    maxPrice.value == ''
    displayMenuItems(range)
    console.log(range)
 })
-let searchBtn = document.querySelector('#search-btn');
-let inputValue = document.querySelector('#search-input');
-inputValue.addEventListener('input', searchFilter);
+const searchBtn = document.querySelector('#search-btn');
+const searchInput = document.querySelector('#search-input');
+const searchOptions = document.getElementById('search-options');
 
-function searchFilter(e) {
-   let val = inputValue.value.trim().toLowerCase();
+searchInput.addEventListener('input', renderMenuItems);
+searchOptions.addEventListener('change', renderMenuItems);
+
+function renderMenuItems() {
+   let result = menuItems;
+   let val = searchInput.value.trim().toLowerCase();
    if (val) {
-      let searchByName = menu.filter(item =>
-         item.title.toLowerCase().includes(val) || item.desc.toLowerCase().includes(val)
-      );
-      displayMenuItems(searchByName);
+      const searchOptions = getSearchOptions();
+      if (searchOptions == "byTitle") {
+         result = menuItems.filter(dish => dish.title.toLowerCase().includes(val));
+      } else if (searchOptions == "byDescription") {
+         result = menuItems.filter(dish => dish.desc.toLowerCase().includes(val));
+      } else {
+         result = menuItems.filter(dish => dish.title.toLowerCase().includes(val) || dish.desc.toLowerCase().includes(val));
+      }
    }
-   else {
-      displayMenuItems(menu);
+   result = filterByCategory(result);
+   displayMenuItems(result);
+}
+
+function filterByCategory(menuItems) {
+   let activeCategory = getActiveCategory();
+   if (activeCategory) {
+      return menuItems.filter(m => m.category == activeCategory);
+   } else {
+      return menuItems;
    }
+}
+
+function getActiveCategory() {
+   const activeBtn = document.querySelector('.filter-btn.active');
+   if (activeBtn) {
+      const category = activeBtn.dataset.id.toLowerCase().replace("all", "");
+      return category;
+   }
+   return "";
+}
+
+function getSearchOptions() {
+   return searchOptions.value.trim();
 }
