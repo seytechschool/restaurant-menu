@@ -166,6 +166,14 @@ main {
   display: grid;
   place-items: center;
 }
+
+.cart {
+  margin: 30px;
+  float: right;
+}
+.clr {
+  clear: both;
+}
 /*
 =============== 
 Menu
@@ -248,18 +256,20 @@ Menu
   padding-top: 1rem;
 }
 /* inputs */
-.searchDiv, .price {
+.searchDiv,
+.price {
   text-align: center;
   display: flex;
   justify-content: center;
 }
-.searchDiv input, .price input{
+.searchDiv input,
+.price input {
   margin: 20px;
   padding: 10px 20px;
   width: 300px;
   border-radius: 10px;
 }
-.price input{
+.price input {
   width: 100px;
 }
 @media screen and (min-width: 768px) {
