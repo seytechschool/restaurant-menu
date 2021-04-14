@@ -78,7 +78,6 @@ search.addEventListener('keyup',(e)=>{
     );
  });
   renderData(foundMenu);
-
 });
 
 
