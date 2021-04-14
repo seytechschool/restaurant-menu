@@ -78,9 +78,19 @@ search.addEventListener('keyup',(e)=>{
     );
  });
   renderData(foundMenu);
-
 });
 
-
+filterPrice.addEventListener('click',()=>{
+  let min= document.querySelector('#minPrice');
+ let max = document.querySelector('#maxPrice');
+   let minPrice= min.value;
+   let maxPrice= max.value;
+ 
+  let filteredPrice =result.filter(menuItem =>{
+   return  menuItem.price > minPrice && menuItem.price < maxPrice
+  })
+ 
+  renderData(filteredPrice);
+ })
 
 

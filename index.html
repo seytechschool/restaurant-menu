@@ -20,6 +20,16 @@
 
         <input type="text" id='searchBar' placeholder="search..."/>
       </div>
+      <!--price-->
+      <div data-role="main" class="ui-content">
+        <div data-role="rangeslider">
+          <label for="minPrice">Price:</label>
+          <input type="range" name="minPrice" id="minPrice" value="0" min="0" max="40">
+          <label for="maxPrice">Price:</label>
+          <input type="range" name="maxPrice" id="maxPrice" value="40" min="0" max="40">
+        </div>
+          <input type="submit" data-inline="true" value="Submit" id="submit">
+    </div>
     
       <!-- filter buttons -->
       <div class="btn-container">
@@ -50,6 +60,9 @@
         </article> -->
       </div>
     </section>
+    <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    
     <script src="script.js"></script>
   </body>
 </html>
