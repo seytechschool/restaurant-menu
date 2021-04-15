@@ -57,6 +57,10 @@ const renderMenu = data => {
                     </header>
                     <p class="item-text">${item.desc}</p>
                 </div>
+                <br>
+                <div>
+                <button class="add-to-cart">Add To Cart</button>
+                </div>
             </article>`;
         }
     }
@@ -94,6 +98,7 @@ const handleFilter = event => {  // Changed the name of function because functio
 
 const handleSearch = event => {
 	if (event.target.matches('.search-input')) {
+        event.preventDefault()
         let keyword = searchInput.value.toLowerCase();
         let selectedCategory = document.querySelector('.filter-active').dataset.id;
         let filteredMenu;
@@ -122,7 +127,26 @@ const handleSearch = event => {
             renderMenu(filteredMenu);
         }
     }
+
+    // add to shopping cart
+const cartButton = document.querySelector('.cart-btn');
+const addToCartBtn = document.querySelector('.add-to-cart');
+const cartContainer = document.querySelector('.cart-container');
+
+// cartButton.addEventListener('click',handleToggle)
+// let cartContainerIsVisible = false;
+// const handleToggle = event => {
+//     if(event.target.matches(cartButton)){
+
+//     }
     
+// }
+// const renderCartContainer = () => {
+
+// }
+
+
+
 
 const startApp = async () => {
     await getData();
