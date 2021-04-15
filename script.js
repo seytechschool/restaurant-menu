@@ -1,3 +1,4 @@
+
 const menuContainer = document.querySelector('.section-center');
 const buttonsContainer = document.querySelector('.btn-container');
 const searchInput = document.querySelector('.search-input');
@@ -36,6 +37,7 @@ const setCategories = () => {
 
 // adding all event listeners inside one function.
 const addAllEventListeners = () => {
+   
     buttonsContainer.addEventListener('click', handleFilter);
     // searchInput.addEventListener('keyup', handleSearch);
     searchButton.addEventListener('click', handleSearch);
@@ -60,6 +62,10 @@ const renderMenu = data => {
                     <h4 class="price">${item.price}</h4>
                     </header>
                     <p class="item-text">${item.desc}</p>
+                </div>
+                <br>
+                <div>
+                <button class="add-to-cart">Add To Cart</button>
                 </div>
             </article>`;
         }
@@ -115,7 +121,27 @@ const handleSearch = (event) => {
         }
         renderMenu(filteredMenu);
     }
-}    
+}
+
+    // add to shopping cart
+const cartButton = document.querySelector('.cart-btn');
+const addToCartBtn = document.querySelector('.add-to-cart');
+const cartContainer = document.querySelector('.cart-container');
+
+// cartButton.addEventListener('click',handleToggle)
+// let cartContainerIsVisible = false;
+// const handleToggle = event => {
+//     if(event.target.matches(cartButton)){
+
+//     }
+    
+// }
+// const renderCartContainer = () => {
+
+// }
+
+
+
 
 
 
@@ -126,4 +152,3 @@ document.addEventListener("DOMContentLoaded", async () => {
     renderButtons();
     addAllEventListeners();
 })
-
