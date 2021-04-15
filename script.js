@@ -4,6 +4,7 @@ const buttonsContainer = document.querySelector('.btn-container');
 const searchInput = document.querySelector('.search-input');
 const maxPriceInput = document.querySelector('.max-price');
 const minPriceInput = document.querySelector('.min-price');
+const searchButton = document.querySelector('.search-btn');
 
 let menu = [];
 
@@ -15,9 +16,14 @@ let url = 'https://gist.githubusercontent.com/maratgaip/44060c688fcf5f2b7b3985a6
 
 // "getData" function is responsible only for fetching data and putting the data into "menu" variable.
 const getData = async () => {
-    const response = await fetch(url);
-    data = await response.json();
-    menu = data;
+    try {
+        const response = await fetch(url);
+        data = await response.json();
+        menu = data;
+    }
+    catch(err) {
+        console.log(err)
+    }
 }
 
 // "getCategories" function finds all possible categories and saves them in separete array.
@@ -31,12 +37,12 @@ const setCategories = () => {
 
 // adding all event listeners inside one function.
 const addAllEventListeners = () => {
-    maxPriceInput.addEventListener('change', handleSetPrice);
-    minPriceInput.addEventListener('change', handleSetPrice);
+   
     buttonsContainer.addEventListener('click', handleFilter);
-    searchInput.addEventListener('keyup', handleSearch);
-    maxPriceInput.addEventListener('change', handleSetPrice);
-    minPriceInput.addEventListener('change', handleSetPrice);
+    // searchInput.addEventListener('keyup', handleSearch);
+    searchButton.addEventListener('click', handleSearch);
+    // maxPriceInput.addEventListener('change', handleSetPrice);
+    // minPriceInput.addEventListener('change', handleSetPrice);
 }
 
 // "renderMenu" function only renders menu with foods.
@@ -75,7 +81,6 @@ const renderButtons = () => {
     buttonsContainer.firstElementChild.classList.add('filter-active');
 }
 
-
 const handleFilter = event => {  // Changed the name of function because function should describe an action;
     if (event.target.matches('.filter-btn')) {
         document.querySelectorAll('.filter-btn').forEach(button => {
@@ -96,37 +101,27 @@ const handleFilter = event => {  // Changed the name of function because functio
 }
 
 
-const handleSearch = event => {
-	if (event.target.matches('.search-input')) {
-        event.preventDefault()
-        let keyword = searchInput.value.toLowerCase();
+const handleSearch = (event) => {
+    if (event.target.matches('.search-btn')) {
+        event.preventDefault();
+        const keyword = searchInput.value.toLowerCase();
+        const minPrice = minPriceInput.value || 0;
+        const maxPrice = maxPriceInput.value || Infinity;
         let selectedCategory = document.querySelector('.filter-active').dataset.id;
-        let filteredMenu;
-
+        let filteredMenu = [];
         if ( selectedCategory === categories[0]) {
             filteredMenu = menu.filter(item => {
-                return item.title.includes(keyword);
+                return item.title.includes(keyword) && item.title.includes(keyword) && item.price >= minPrice && item.price <= maxPrice;
             })
         }
         else {
             filteredMenu = menu.filter(item => {
-                return item.category === selectedCategory && item.title.includes(keyword);
-             })
+                return item.category === selectedCategory && item.title.includes(keyword) && item.price >= minPrice && item.price <= maxPrice;
+                })
         }
-		renderMenu(filteredMenu);
-	}
-}
-
-    const handleSetPrice = event => {
-        if (event.target.matches('.min-price') || event.target.matches('.max-price')) {
-            let minPrice = minPriceInput.value || 0;
-            let maxPrice = maxPriceInput.value || Infinity;
-            let filteredMenu = menu.filter(menuItem => {
-                return menuItem.price > minPrice && menuItem.price < maxPrice;
-            })
-            renderMenu(filteredMenu);
-        }
+        renderMenu(filteredMenu);
     }
+}
 
     // add to shopping cart
 const cartButton = document.querySelector('.cart-btn');
@@ -148,12 +143,12 @@ const cartContainer = document.querySelector('.cart-container');
 
 
 
-const startApp = async () => {
+
+
+document.addEventListener("DOMContentLoaded", async () => {
     await getData();
     setCategories();
     renderMenu(menu);
     renderButtons();
     addAllEventListeners();
-}
-startApp();
-
+})
