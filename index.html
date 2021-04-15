@@ -63,19 +63,28 @@
       <div class="title">
         <h2>our menu</h2>
         <div class="underline"></div>
-
-        <input type="text" id='searchBar' placeholder="search..."/>
       </div>
       <!--price-->
-      <div data-role="main" class="ui-content">
+      <div class="content-int">
+        <input type="text" id='searchBar' placeholder="search..."/>
+        <div class='price-filter'>
+            <div class="price-range">Price range: <span id='range'></span>
+            </div>
+            <div class='slider-int'>
+              <div id='slider'></div>
+              <button class='btn' id='filterPrice'>Filter</button>
+            </div>
+        </div>
+      </div>
+      <!-- <div data-role="main" class="ui-content">
         <div data-role="rangeslider">
           <label for="minPrice">Price:</label>
           <input type="range" name="minPrice" id="minPrice" value="0" min="0" max="40">
           <label for="maxPrice">Price:</label>
           <input type="range" name="maxPrice" id="maxPrice" value="40" min="0" max="40">
         </div>
-          <input type="submit" data-inline="true" value="Submit" id="submit">
-    </div>
+        <input type="submit" data-inline="true" value="Submit" id="submit">
+    </div> -->
     
       <!-- filter buttons -->
       <div class="btn-container">
@@ -106,8 +115,9 @@
         </article> -->
       </div>
     </section>
-    <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
-    <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
     
     <script src="script.js"></script>
   </body>

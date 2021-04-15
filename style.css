@@ -451,6 +451,9 @@ Menu
 .item-info h4 {
   margin-bottom: 0.5rem;
 }
+.content-int{
+  text-align: center;
+}
 .price {
   color: var(--clr-gold);
 }
@@ -458,6 +461,25 @@ Menu
   margin-bottom: 0;
   padding-top: 1rem;
 }
+
+.price-range{
+  font-weight: bold;
+  font-size: 1.2em;
+}
+.price-filter{
+  max-width: 300px;
+  margin: 15px auto;
+}
+.slider-int{
+  text-align: center;
+}
+.ui-slider{
+  margin-bottom: 10px;
+}
+.ui-widget-header{
+  background: var(--clr-gold) !important;
+}
+
 .item-info{
   position: relative;
 }
@@ -468,7 +490,6 @@ Menu
   background-color: gold;
 }
 
-
 @media screen and (min-width: 768px) {
   .menu-item {
     grid-template-columns: 225px 1fr;
@@ -477,6 +498,7 @@ Menu
   }
   .photo {
     height: 175px;
+    
   }
 }
 @media screen and (min-width: 1200px) {
