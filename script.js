@@ -1,6 +1,7 @@
 // function renderdata
 
 let result = [];
+let cart = [];
 const container = document.querySelector('.section-center');
 
 async function loadDataOnLoad() {
@@ -26,14 +27,64 @@ function renderData(data) {
           <p class="item-text">
             ${item.desc}
           </p>
-          <button class='add-to-cart' id='${item.id}' onclick='addToCardHandler(window.event)'>Add to cart</button>
+          <button class='add-to-cart' id='${item.id}' onclick='addToCartHandler(window.event)'>Add to cart</button>
         </div>
       </article>`
   }
 }
-function addToCardHandler(event){
-
+function addToCartHandler(event){
+  for(let menuItem of result){
+    if(menuItem.id === Number(event.target.id)){  //when clicked on add to cart, pushing item to the cart arr
+      cart.push(menuItem);
+    }
+  }
+  renderCartItems();
 }
+
+
+let ShoppingCartitems = document.querySelector('.shopping-cart-items');
+
+function renderCartItems(){
+  ShoppingCartitems.innerHTML = '';
+  for(let item of cart){
+    ShoppingCartitems.innerHTML += `
+         <li class="clearfix">
+           <img class="cart-img" src='${item.img}'/>
+           <span class="item-name">${item.title}</span>
+           <span class="item-price">${item.price}</span>
+           <span id=${item.id} class="item-delete"><i onclick="removeItem(window.event)" class="fas fa-trash-alt"></i></span>
+         </li>`
+  }
+}
+ 
+function removeItem(event){
+  for(let i = 0; i < cart.length; i++){
+    if(event.target.parentNode.id == cart[i].id){
+      cart.splice(i, 1);
+      renderCartItems();
+      return;
+    }
+  }
+  
+}
+
+// Shopping cart animation
+(function(){
+  $('.shopping-cart').each(function() {
+    var delay = $(this).index() * 50 + 'ms';
+    $(this).css({
+        '-webkit-transition-delay': delay,
+        '-moz-transition-delay': delay,
+        '-o-transition-delay': delay,
+        'transition-delay': delay
+    });
+  });
+  $('#cart, .shopping-cart').hover(function(e) {
+    $(".shopping-cart").stop(true, true).addClass("hovered-active");
+  }, function() {
+    $(".shopping-cart").stop(true, true).removeClass("hovered-active");
+  });  
+})();
 
 const buttonContainer = document.querySelector('.btn-container');
 
@@ -96,7 +147,5 @@ filterPrice.addEventListener('click',()=>{
   renderData(filteredPrice);
  })
 
-function addToCardHandler(event){ //add to cart functionality
-  
-}
+
 
