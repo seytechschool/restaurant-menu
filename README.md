@@ -22,10 +22,10 @@ Dynamic Restaurant Menu app in javascript.
 3. Render menu [Issue #2](https://github.com/seytechschool/restaurant-menu/issues/2) - 5 points
 4. Show Active menu [Issue #6](https://github.com/seytechschool/restaurant-menu/issues/6) - 3 points
 5. Filter functionality [Issue #3](https://github.com/seytechschool/restaurant-menu/issues/3) - 5 points
-6. Search functionality [Issue #4](https://github.com/seytechschool/restaurant-menu/issues/4) - 8 points
-7. Search by feature. [Issue #7](https://github.com/seytechschool/restaurant-menu/issues/7) - 8 points
+6. Search functionality [Issue #4](https://github.com/seytechschool/restaurant-menu/issues/4) - 13 points
+7. Search by feature. [Issue #7](https://github.com/seytechschool/restaurant-menu/issues/7) - 13 points
 8. Filter by price feature. [Issue #8](https://github.com/seytechschool/restaurant-menu/issues/8) - 13 points
-9. Add to card feature. [Issue #9](https://github.com/seytechschool/restaurant-menu/issues/9) - 13 points
+9. Add to card feature. [Issue #9](https://github.com/seytechschool/restaurant-menu/issues/9) - 21 points
 
 # Screenshot
 
