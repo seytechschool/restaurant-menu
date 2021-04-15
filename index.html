@@ -15,45 +15,31 @@
     <section class="menu">
       <!-- title -->
       <div class="title">
-        <!--search-->
-        <!-- <div class="search-container">
-          <input class="search" type="text" placeholder="Search.." />
-
-          <button class="search-btn" type="submit">
-            <i class="fa fa-search"></i>
-          </button>
-        </div> -->
         <div class="wrapper">
           <div class="search_box">
             <div class="dropdown">
-              <div class="default_option">All</div>
-              <!-- <ul>
-                <li>All</li>
-                <li>Description</li>
-                <li>Title</li>
-              </ul> -->
+              <div class="default_option">
+                <select name="" id="priceSelect">
+                  <option value="price">Price</option>
+                  <option value="15">> $15</option>
+                  <option value="30">> $30</option>
+                  <option value="40">> $40</option>
+                </select>
+              </div>
             </div>
             <div class="search_field">
               <input type="text" id="search" placeholder="Search..." />
              <i class="fa fa-search"></i>
-             
             </div>
           </div>
+          <p id="alert"></p>
         </div>
         <h2>our menu</h2>
         <div class="underline"></div>
       </div>
       <!-- filter buttons -->
       <div class="btn-container">
-        <button class="filter-btn active" type="button" data-id="all">all</button
-        ><button class="filter-btn" type="button" data-id="breakfast">
-          breakfast</button
-        ><button class="filter-btn" type="button" data-id="lunch">lunch</button
-        ><button class="filter-btn" type="button" data-id="shakes">
-          shakes</button
-        ><button class="filter-btn" type="button" data-id="dinner">
-          dinner
-        </button>
+      <!-- menu buttons displayed dynamically with JS -->
       </div>
       <!-- menu items -->
       <div class="section-center">
