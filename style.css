@@ -473,8 +473,9 @@ Menu
 .slider-int{
   text-align: center;
 }
-.ui-slider{
+div.ui-slider{
   margin-bottom: 10px;
+  height: 0.8em;
 }
 .ui-widget-header{
   background: var(--clr-gold) !important;
