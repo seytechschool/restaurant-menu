@@ -8,9 +8,9 @@ async function loadDataOnLoad() { //initial function which trigged when page is 
   filteredResult = result = await getData();
   renderData(result);
   renderCategories();
+  renderPriceFilter();
 }
-
-async function getData() { //fetch data from the server
+async function getData() {
   const response = await fetch('https://gist.githubusercontent.com/maratgaip/44060c688fcf5f2b7b3985a6d15fdb1d/raw/e93c3dce0826d08c8c6e779cb5e6d9512c8fdced/restaurant-menu.json');
 
   return await response.json();
@@ -56,14 +56,13 @@ function renderCategories() {
     let filterBy = event.target.dataset.id
     if (filterBy === 'all') {
       filteredResult = result;
-
-      renderData(result);
     } else {
       filteredResult = result.filter(menuItem => menuItem.category === filterBy)
-      console.log(filteredResult)
-
-      renderData(filteredResult)
     }
+
+    renderData(filteredResult);
+    renderPriceFilter();
+
     let filterBtn = document.querySelectorAll('.filter-btn')
     filterBtn.forEach(button => button.classList.remove('active'))
     event.target.classList.add('active')
@@ -76,21 +75,37 @@ search.addEventListener('keyup',(e) => {
   const foundMenu = filteredResult.filter(menu => {
     return(menu.title.toLowerCase().includes(searchString) || menu.desc.toLowerCase().includes(searchString));
   });
-  
   renderData(foundMenu);
 });
 
+function renderPriceFilter(){ // render price filter range
+  const maxEdge = Math.floor(Math.max(...filteredResult.map(menuItem => menuItem.price)));
+  const priceApprox = 10; // to determine bigger value for max than it is in result
+  //creating a slider 
+  $('#slider').slider({max: maxEdge + priceApprox, range: true, values: [0,maxEdge + priceApprox], change: () => {
+    renderFilterData();
+  }});
+  renderFilterData();
+}
+
+const filterPrice = document.querySelector('#filterPrice');
 filterPrice.addEventListener('click',()=>{
-  let min= document.querySelector('#minPrice');
- let max = document.querySelector('#maxPrice');
-   let minPrice= min.value;
-   let maxPrice= max.value;
- 
-  let filteredPrice =result.filter(menuItem =>{
-   return  menuItem.price > minPrice && menuItem.price < maxPrice
+  const filterRange = getFilterRange();
+  let filteredPrice = filteredResult.filter(menuItem =>{
+   return  menuItem.price > filterRange.min && menuItem.price < filterRange.max
   })
- 
   renderData(filteredPrice);
- })
+ });
+
+ function renderFilterData(){
+    const filterRange = getFilterRange();
+    $('#range').text(`$${filterRange.min} - $${filterRange.max}`);
+ }
+
+ function getFilterRange(){
+  let [min, max] = $('#slider').slider('option', 'values');
+  return {min, max};
+ }
+
 
 
