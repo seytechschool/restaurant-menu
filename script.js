@@ -1,3 +1,4 @@
+
 class RestaurantMenu {
 
 	constructor(cart) {
@@ -113,7 +114,7 @@ class RestaurantMenu {
 		this.renderMenu(this.menu);
 		this.cart.render();
 	}
-}
+
 
 
 class Cart {
@@ -220,3 +221,4 @@ document.addEventListener("DOMContentLoaded", async () => {
 	await team5RestaurantMenu.fetchData(url);
 	team5RestaurantMenu.render();
 })
+
