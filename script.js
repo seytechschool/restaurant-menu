@@ -96,6 +96,21 @@ function displayMenuItems(menuItems) {
    setupAddCartButtons();
 }
 
+function displayMenuButtons() {
+  const categories = menu.reduce(function (values, item) {
+    if (!values.includes(item.category)) {
+      values.push(item.category);
+    }
+    return values;
+  },
+    ['all']);
+  const categoryBtns = categories.map(function (category) {
+    return `<button class="filter-btn" type="button" data-id=${category}>${category}</button>`;
+  })
+    .join("");
+  container.innerHTML = categoryBtns;
+  const filterBtns = document.querySelectorAll('.filter-btn');
+
 function setupAddCartButtons() {
    const addToCartButtons = document.querySelectorAll('.btn-add-cart');
    addToCartButtons.forEach( function (btn) {
