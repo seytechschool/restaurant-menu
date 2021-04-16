@@ -1,48 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Restaurant menu</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <section class="menu">
-      <!-- title -->
-      <div class="title">
-        <h2>our menu</h2>
-        <div class="underline"></div>
-      </div>
-      <!-- filter buttons -->
-      <div class="btn-container">
-        <button class="filter-btn" type="button" data-id="all">all</button
-        ><button class="filter-btn" type="button" data-id="breakfast">
-          breakfast</button
-        ><button class="filter-btn" type="button" data-id="lunch">lunch</button
-        ><button class="filter-btn" type="button" data-id="shakes">
-          shakes</button
-        ><button class="filter-btn" type="button" data-id="dinner">
-          dinner
-        </button>
-      </div>
-      <!-- menu items -->
-      <div class="section-center">
-        <article class="menu-item">
-          <img src="./images/item-1.jpeg" class="photo" alt="buttermilk" />
-          <div class="item-info">
-            <header>
-              <h4>buttermilk pancakes</h4>
-              <h4 class="price">$15.99</h4>
-            </header>
-            <p class="item-text">
-              I'm baby woke mlkshk wolf bitters live-edge blue bottle, hammock
-              freegan copper mug whatever cold-pressed
-            </p>
-          </div>
-        </article>
-      </div>
-    </section>
-    <script src="script.js"></script>
-  </body>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Restaurant menu</title>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css"
+    integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <div class="cart">
+    <i class="fas fa-cart-plus"></i>
+    <span class="total"></span>
+  </div>
+  <div class="clr"></div>
+  <section class="menu">
+    <!-- title -->
+    <div class="title">
+      <h2>our menu</h2>
+      <div class="underline"></div>
+    </div>
+    <div id="found"></div>
+    <!-- search -->
+    <div class="searchDiv">
+      <input id="search" type="text" placeholder="Search...">
+    </div>
+    <div class='price'>
+      <span>from
+        <input type="number" min="0" max="100" /> to
+        <input type="number" min="0" max="100" /></span>
+    </div>
+    <!-- filter buttons -->
+    <div class="btn-container">
+
+    </div>
+    <!-- menu items -->
+    <div class="section-center">
+    </div>
+  </section>
+  <script src="script.js"></script>
+</body>
+
 </html>

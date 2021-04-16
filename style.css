@@ -166,6 +166,14 @@ main {
   display: grid;
   place-items: center;
 }
+
+.cart {
+  margin: 30px;
+  float: right;
+}
+.clr {
+  clear: both;
+}
 /*
 =============== 
 Menu
@@ -203,6 +211,11 @@ Menu
   color: var(--clr-gold);
   cursor: pointer;
   transition: var(--transition);
+}
+.active-btn {
+  background: var(--clr-gold);
+  border-color: var(--clr-black);
+  color: var(--clr-black);
 }
 .filter-btn:hover {
   background: var(--clr-gold);
@@ -242,7 +255,23 @@ Menu
   margin-bottom: 0;
   padding-top: 1rem;
 }
-
+/* inputs */
+.searchDiv,
+.price {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+.searchDiv input,
+.price input {
+  margin: 20px;
+  padding: 10px 20px;
+  width: 300px;
+  border-radius: 10px;
+}
+.price input {
+  width: 100px;
+}
 @media screen and (min-width: 768px) {
   .menu-item {
     grid-template-columns: 225px 1fr;
