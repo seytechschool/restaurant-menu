@@ -166,6 +166,20 @@ main {
   display: grid;
   place-items: center;
 }
+
+.cart {
+  margin: 30px;
+  float: right;
+}
+.clr {
+  clear: both;
+}
+.fa-cart-plus {
+  font-size: 45px;
+}
+.total {
+  font-size: 30px;
+}
 /*
 =============== 
 Menu
@@ -173,11 +187,10 @@ Menu
 */
 
 .menu {
-  padding: 5rem 0;
+  padding: 0;
 }
 .title {
   text-align: center;
-  margin-bottom: 2rem;
 }
 .underline {
   width: 5rem;
@@ -203,11 +216,18 @@ Menu
   color: var(--clr-gold);
   cursor: pointer;
   transition: var(--transition);
+  outline: none;
+}
+.active-btn {
+  background: var(--clr-gold);
+  border-color: var(--clr-black);
+  color: var(--clr-black);
 }
 .filter-btn:hover {
   background: var(--clr-gold);
   color: var(--clr-white);
 }
+
 .section-center {
   width: 90vw;
   margin: 0 auto;
@@ -243,6 +263,28 @@ Menu
   padding-top: 1rem;
 }
 
+/* inputs */
+.searchDiv,
+.price {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+.searchDiv input,
+.price input {
+  margin: 20px;
+  padding: 10px 20px;
+  width: 300px;
+  border-radius: 10px;
+}
+.price input {
+  width: 100px;
+  margin-bottom: 30px;
+}
+#found {
+  text-align: center;
+  font-size: 30px;
+}
 @media screen and (min-width: 768px) {
   .menu-item {
     grid-template-columns: 225px 1fr;
