@@ -6,17 +6,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Restaurant menu</title>
     <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
   </head>
   <body>
     <section class="menu">
       <!-- title -->
       <div class="title">
+        <!--search-->
+        <!-- <div class="search-container">
+          <input class="search" type="text" placeholder="Search.." />
+
+          <button class="search-btn" type="submit">
+            <i class="fa fa-search"></i>
+          </button>
+        </div> -->
+        <div class="wrapper">
+          <div class="search_box">
+            <div class="dropdown">
+              <div class="default_option">All</div>
+              <!-- <ul>
+                <li>All</li>
+                <li>Description</li>
+                <li>Title</li>
+              </ul> -->
+            </div>
+            <div class="search_field">
+              <input type="text" id="search" placeholder="Search..." />
+             <i class="fa fa-search"></i>
+             
+            </div>
+          </div>
+        </div>
         <h2>our menu</h2>
         <div class="underline"></div>
       </div>
       <!-- filter buttons -->
       <div class="btn-container">
-        <button class="filter-btn" type="button" data-id="all">all</button
+        <button class="filter-btn active" type="button" data-id="all">all</button
         ><button class="filter-btn" type="button" data-id="breakfast">
           breakfast</button
         ><button class="filter-btn" type="button" data-id="lunch">lunch</button
@@ -28,6 +57,9 @@
       </div>
       <!-- menu items -->
       <div class="section-center">
+
+        <!--render data with js-->
+
       </div>
     </section>
     <script src="script.js"></script>
