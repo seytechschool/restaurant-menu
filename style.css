@@ -247,41 +247,16 @@ Menu
   background: var(--clr-gold);
   color: var(--clr-white);
 }
-
 .active {
   background: var(--clr-gold);
   color: var(--clr-white);
 }
-/*search*/ 
-/* .search-container{
- float: right;
-}
-
-.search-container input{
-  padding: 6px;
-  margin-top: 8px;
-  font-size: 17px;
-  border: none;
-}
-
-.search-container button {
-  float: right;
-  padding: 6px 10px;
-  margin-top: 8px;
-  margin-right: 16px;
-  background: #ddd;
-  font-size: 17px;
-  border: none;
-  cursor: pointer;
-}*/
-
 .wrapper{
   margin-left: 100px;
   /* flex: 1; */
 }
-
 .wrapper .search_box{
-  width: 350px;
+  width: 370px;
   border: 2px solid #c59d5f;
   background: white;
   border-radius: 5px;
@@ -290,7 +265,6 @@ Menu
   padding: 10px;
   box-shadow: 0 8px 6px -10px #ffdcb3;
 }
-
 .wrapper .search_box .dropdown{
   width: 150px;
   border-right: 2px solid #c59d5f;
@@ -298,56 +272,16 @@ Menu
   position: relative;
   cursor: pointer;
 }
-
 .wrapper .search_box .dropdown .default_option{
   text-transform: uppercase;
   padding: 2px;
   font-size: 14px;
 }
-
-.wrapper .search_box .dropdown ul{
-  position: absolute;
-  top: 50px;
-  left: -20px;
-  background: white;
-  width: 150px;
-  border-radius: 5px;
-  padding: 20px;
-  display: none;
-  box-shadow: 8px 8px 6px -10px #944a0e;
-}
-
-.wrapper .search_box .dropdown ul.active{
-  display: block;
-}
-
-.wrapper .search_box .dropdown ul li{
-  padding-bottom: 20px;
-}
-
-.wrapper .search_box .dropdown ul li:last-child{
-  padding-bottom: 0;
-}
-
-.wrapper .search_box .dropdown ul li:hover{
-  color: #6f768d;
-}
-
-.wrapper .search_box .dropdown:before{
-  content: "";
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  border: 8px solid;
-  border-color:#c59d5f transparent transparent transparent;
-}
-
 .wrapper .search_box .search_field{
   width: 350px;
   height: 100%;
   position: relative;
 }
-
 .wrapper .search_box .search_field .input{
   width: 100%;
   height: 100%;
@@ -357,7 +291,6 @@ Menu
   padding-right: 38px;
   color: #c59d5f;
 }
-
 .wrapper .search_box .search_field .fa{
   position: absolute;
   top: 3px;
@@ -366,11 +299,9 @@ Menu
   color: #c59d5f;
   cursor: pointer;
 }
-
 .wrapper input::placeholder{
   color: #c59d5f;
 }
-
 .addToCart{
   position: relative;
   top:20px;
@@ -386,28 +317,11 @@ Menu
   cursor: pointer;
   transition: var(--transition);
 }
-
-/* .order-cart-border { 
-  
-  width: 350px;
-  border: 2px solid #c59d5f;
-  background: white;
-  border-radius: 5px;
-  height: 50px;
-  display: flex;
-  padding: 10px;
-  box-shadow: 0 8px 6px -10px #ffdcb3;
-  float: right;
-} */
-
 .our-menu {
   flex: 1;
 }
-
 .cart{
-  /* flex: 1; */
   padding: 10px;
-  /* margin-right: 60px; */
   box-shadow: 0 8px 6px -10px #ffdcb3;
   background: white;
   border-color: var(--clr-gold);
@@ -440,14 +354,15 @@ Menu
   color: #c59d5f;
   position: relative;
 }
-
 #totPrice {
   font-weight: bold;
   color: var(--clr-grey-1);
 }
-
 .fa-shopping-cart {
   margin-right: 10px;
+}
+#priceSelect{
+  color: #704d19;
 }
 
 @media screen and (min-width: 768px) {
@@ -459,16 +374,6 @@ Menu
   .photo {
     height: 175px;
   }
-  /* .search-container {
-    float: none;
-  }
-  .search-container input, .search-container button {
-    float: none;
-    display: block;
-    text-align: left;
-    width: 100%;
-    margin: 0;
-    padding: 14px; */
 }
 @media screen and (min-width: 1200px) {
   .section-center {
