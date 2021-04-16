@@ -6,7 +6,7 @@ const searchEl = document.querySelector('#search');
 let totItem = document.querySelector('#totItem')
 let totPrice= document.querySelector('#totPrice')
 let count = 0;
-let price=0;
+let priceCart=0;
 const price = document.querySelector('#priceSelect');
 const alertEl = document.querySelector('#alert')
 
@@ -117,13 +117,13 @@ function addToCart(){
     aBtn.addEventListener('click', (event) => {
       let curnt = event.target;
       count++;
-      totItem.innerText=count;
-      for(let i=0; i<result.length; i++){
+      totItem.innerText = count;
+      for(let i = 0; i < result.length; i++){
           if(curnt.id == result[i].id){
-            price += Number(result[i].price);
+            priceCart += Number(result[i].price);
           }
       }  
-      totPrice.innerText=price.toFixed(2);   
+      totPrice.innerText = priceCart.toFixed(2);   
     })
   })
 }
