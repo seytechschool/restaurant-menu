@@ -1,48 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Restaurant menu</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <section class="menu">
-      <!-- title -->
-      <div class="title">
-        <h2>our menu</h2>
-        <div class="underline"></div>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Restaurant menu</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css"
+    integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
+</head>
+
+<body>
+  <!-- add to shopping cart -->
+  <div class="cart-icon">
+   <button class="cart-btn"><i class="fas fa-shopping-cart"></i></button> 
+  </div>
+
+  <section class="menu">
+    <!-- title -->
+
+    <div class="title">
+      <h2>our menu</h2>
+      <div class="underline"></div>
+    </div>
+    <!-- filter buttons -->
+    <div class="btn-container">
+
+    </div>
+
+    <form>
+      <div class="search">
+        <input class="search-input" type="search" placeholder="Search">
+
       </div>
-      <!-- filter buttons -->
-      <div class="btn-container">
-        <button class="filter-btn" type="button" data-id="all">all</button
-        ><button class="filter-btn" type="button" data-id="breakfast">
-          breakfast</button
-        ><button class="filter-btn" type="button" data-id="lunch">lunch</button
-        ><button class="filter-btn" type="button" data-id="shakes">
-          shakes</button
-        ><button class="filter-btn" type="button" data-id="dinner">
-          dinner
-        </button>
+      <div class="filter-price">
+        <input class="min-price" type="number" placeholder="Min Price">
+        <input class="max-price" type="number" placeholder="Max Price">
       </div>
-      <!-- menu items -->
-      <div class="section-center">
-        <article class="menu-item">
-          <img src="./images/item-1.jpeg" class="photo" alt="buttermilk" />
-          <div class="item-info">
-            <header>
-              <h4>buttermilk pancakes</h4>
-              <h4 class="price">$15.99</h4>
-            </header>
-            <p class="item-text">
-              I'm baby woke mlkshk wolf bitters live-edge blue bottle, hammock
-              freegan copper mug whatever cold-pressed
-            </p>
-          </div>
-        </article>
+      <div class="">
+        <button class="search-btn">Search</button>
       </div>
-    </section>
-    <script src="script.js"></script>
-  </body>
+    </form>
+
+    <!-- menu items -->
+    <div class="section-center">
+
+    </div>
+  </section>
+  <!-- cart items -->
+  <div class="cart-container">
+    
+    <form id="cart-items">
+      <table class="shopping-cart">
+        <thead>
+            <tr>
+                <th>Item</th>
+                <th>Qty</th>
+                <th>Price</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+    <p id="sub-total">
+        Sub Total: <span id="total-amount"></span>
+    </p>
+    <button>Emty Cart</button>
+    <button>Checkout</button>
+    </form>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
 </html>
