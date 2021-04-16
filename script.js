@@ -3,6 +3,10 @@ const menuDisplay = document.querySelector('.section-center');
 const containerBtn = document.querySelector('.btn-container');
 const searchIcon = document.querySelector(".fa");
 const searchEl = document.querySelector('#search');
+let totItem = document.querySelector('#totItem')
+let totPrice= document.querySelector('#totPrice')
+let count = 0;
+let priceCart=0;
 const price = document.querySelector('#priceSelect');
 const alertEl = document.querySelector('#alert')
 
@@ -99,6 +103,21 @@ function onSearch(){
     alertEl.innerHTML = ''
 }
 
+// adding functionality
 
-
-
+function addToCart(){
+  const allAddBtns = document.querySelectorAll('.addToCart');
+  allAddBtns.forEach((aBtn) => {
+    aBtn.addEventListener('click', (event) => {
+      let curnt = event.target;
+      count++;
+      totItem.innerText = count;
+      for(let i = 0; i < result.length; i++){
+          if(curnt.id == result[i].id){
+            priceCart += Number(result[i].price);
+          }
+      }  
+      totPrice.innerText = priceCart.toFixed(2);   
+    })
+  })
+}
