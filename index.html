@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Restaurant menu</title>
     <link rel="stylesheet" href="style.css" />
+   <link href="https://cdn.lineicons.com/2.0/LineIcons.css" rel="stylesheet">
   </head>
   <body>
     <section class="menu">
@@ -17,8 +18,7 @@
       <!-- filter buttons -->
       <div class="btn-container">
       </div>
-      
-
+    <!-- search form -->
     <form >
       <div class="search">
         <input class="search-input" type="search" placeholder="Search">
@@ -27,20 +27,30 @@
         <input class="min-price" type="number" placeholder="Min Price">
         <input class="max-price" type="number" placeholder="Max Price">
       </div>
-      <div class="">
+      <div>
         <button class="search-btn">Search</button>
       </div>
     </form>  
-
-
-
-      
-
-
       <!-- menu items -->
       <div class="section-center">
       </div>
     </section>
+    <div>
+      <button class="sidebar-open-btn"> <i class="lni lni-cart lni-32"></i> </button>
+    </div>
+    <div class="sidebar">
+        <div class="sidebar-header">
+          <h3>Cart</h3
+            ]-]>
+          <button class="sidebar-close-btn"><i class="lni lni-close lni-32"></i></button>
+        </div>
+        <div class="orders-container">
+        </div>
+        <div class="sidebar-footer">
+          <h4 class="total">Total: 0</h4>
+          <button class="checkout-btn">Checkout</button>
+        </div>
+    </div>
     <script src="script.js"></script>
   </body>
 </html>
