@@ -3,8 +3,13 @@ const menuDisplay = document.querySelector('.section-center');
 const containerBtn = document.querySelector('.btn-container');
 const searchIcon = document.querySelector(".fa");
 const searchEl = document.querySelector('#search');
+let totItem = document.querySelector('#totItem')
+let totPrice= document.querySelector('#totPrice')
+let count = 0;
+let price=0;
 const price = document.querySelector('#priceSelect');
 const alertEl = document.querySelector('#alert')
+
 
 window.addEventListener('DOMContentLoaded', function(){
     fetch('https://gist.githubusercontent.com/maratgaip/44060c688fcf5f2b7b3985a6d15fdb1d/raw/e93c3dce0826d08c8c6e779cb5e6d9512c8fdced/restaurant-menu.json')
@@ -19,6 +24,7 @@ window.addEventListener('DOMContentLoaded', function(){
 // Render menu Issue #2
 function renderData(menuItem){
     let menuData = menuItem.map(item => {
+        
         return `<article class="menu-item">
         <img src=${item.img} class="photo" alt=${item.title} />
         <div class="item-info">
@@ -27,11 +33,15 @@ function renderData(menuItem){
             <h4 class="price">$${item.price}</h4>
             </header>
             <p class="item-text">${item.desc}</p>
+            <button class = 'addToCart' id=${item.id}>Add to cart</button>
+
+            
         </div>
     </article>`
     })
     menuData = menuData.join('');
     menuDisplay.innerHTML = menuData;
+    addToCart();
 }
 
 // Displaying menu buttons dynamically
@@ -97,6 +107,25 @@ function onSearch(){
     renderData(foundItems)
     searchEl.value = '';
     alertEl.innerHTML = ''
+}
+
+// adding functionality
+
+function addToCart(){
+  const allAddBtns = document.querySelectorAll('.addToCart');
+  allAddBtns.forEach((aBtn) => {
+    aBtn.addEventListener('click', (event) => {
+      let curnt = event.target;
+      count++;
+      totItem.innerText=count;
+      for(let i=0; i<result.length; i++){
+          if(curnt.id == result[i].id){
+            price += Number(result[i].price);
+          }
+      }  
+      totPrice.innerText=price.toFixed(2);   
+    })
+  })
 }
 
 
