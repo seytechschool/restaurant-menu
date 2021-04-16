@@ -114,6 +114,7 @@ class RestaurantMenu {
 		this.renderMenu(this.menu);
 		this.cart.render();
 	}
+}
 
 
 
