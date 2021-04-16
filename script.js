@@ -10,7 +10,6 @@ let priceCart=0;
 const price = document.querySelector('#priceSelect');
 const alertEl = document.querySelector('#alert')
 
-
 window.addEventListener('DOMContentLoaded', function(){
     fetch('https://gist.githubusercontent.com/maratgaip/44060c688fcf5f2b7b3985a6d15fdb1d/raw/e93c3dce0826d08c8c6e779cb5e6d9512c8fdced/restaurant-menu.json')
     .then(response => response.json())
@@ -24,7 +23,6 @@ window.addEventListener('DOMContentLoaded', function(){
 // Render menu Issue #2
 function renderData(menuItem){
     let menuData = menuItem.map(item => {
-        
         return `<article class="menu-item">
         <img src=${item.img} class="photo" alt=${item.title} />
         <div class="item-info">
@@ -33,15 +31,11 @@ function renderData(menuItem){
             <h4 class="price">$${item.price}</h4>
             </header>
             <p class="item-text">${item.desc}</p>
-            <button class = 'addToCart' id=${item.id}>Add to cart</button>
-
-            
         </div>
     </article>`
     })
     menuData = menuData.join('');
     menuDisplay.innerHTML = menuData;
-    addToCart();
 }
 
 // Displaying menu buttons dynamically
@@ -127,7 +121,3 @@ function addToCart(){
     })
   })
 }
-
-
-
-
