@@ -10,6 +10,7 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
     />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css">
   </head>
   <body>
     <section class="menu">
@@ -34,8 +35,17 @@
           </div>
           <p id="alert"></p>
         </div>
-        <h2>our menu</h2>
-        <div class="underline"></div>
+        <div class="our-menu">
+          <h2>our menu</h2>
+          <div class="underline"></div>
+        </div>
+        <!-- Added cart starts-->
+        <div class="cart">
+          <i class="fas fa-shopping-cart fa-lg"></i>
+          <div id='totalItems'>Total Items: <span id='totItem'></span>  </div>
+          <div id='totalPrice'>Total price: $ <span id='totPrice'></span></div>
+        </div>
+        <!-- Added cart ends-->
       </div>
       <!-- filter buttons -->
       <div class="btn-container">
@@ -43,9 +53,7 @@
       </div>
       <!-- menu items -->
       <div class="section-center">
-
         <!--render data with js-->
-
       </div>
     </section>
     <script src="script.js"></script>
