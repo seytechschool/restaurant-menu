@@ -71,6 +71,7 @@ class RestaurantMenu {
 
 	renderButtons() {
 		const buttonsContainer = document.querySelector('.btn-container');
+		buttonsContainer.innerHTML = '';
 		this.categories.forEach(category => {
 			buttonsContainer.innerHTML += `<button class="filter-btn" type="button" data-id="${category}">${category}</button>`;
 		})
@@ -95,16 +96,15 @@ class RestaurantMenu {
 					</header>
 					<p class="item-text">${item.desc}</p>
 				</div>
-				<button class="add-btn" data-item='${JSON.stringify({title: item.title, price: item.price})}'> Add to cart</button>
+				<button class="add-btn" data-title='${item.title}' data-price='${item.price}'> Add to cart</button>
 			</article>`;
 			}
 		}
 	}
 	
-	async render() {
+	render() {
 		const buttonsContainer = document.querySelector('.btn-container');
 		const searchButton = document.querySelector('.search-btn');
-	
 		buttonsContainer.addEventListener('click', this.handleFilter.bind(this));
 		searchButton.addEventListener('click', this.handleSearch.bind(this));
 
@@ -119,59 +119,76 @@ class RestaurantMenu {
 class Cart {
 	constructor() {
 		this.orders = [];
-		this.total = 0;
 	}
 	handLeAddItem(event) {
 		if (event.target.matches('.add-btn')) {
-			let item = JSON.parse(event.target.dataset.item);
+			let title = event.target.dataset.title;
+			let price = parseFloat(event.target.dataset.price);
 			for (let order of this.orders) {
-				if( order.name === item.name) {
+				console.log(order);
+				console.log(order.totalPrice);
+				if( order.title === title) {
 					order.quantity++;
+					order.totalPrice += order.price;
 					this.updateTotal();
 					this.renderOrders();
 					return;
 				}
 			};
 			this.orders.push({
-				title: item.title,
-				totalPrice: item.price,
+				title: title,
+				price: parseFloat(price),
+				totalPrice: parseFloat(price, 2),
 				quantity: 1,
 			});
 			this.updateTotal();
 			this.renderOrders();
 		}
 	}
-	handleRemoveItem(event) {
-		if (event.target.matches('.remove-btn')) {
-			let item = event.target.dataset.id;
-			delete this.orders.item;
+	handleDecrease(event) {
+		if (event.target.matches('.decrease-btn')) {
+			let title = event.target.dataset.title;
+			for(let item in this.orders) {
+				if(this.orders[item].title === title) {
+				  this.orders[item].quantity--;
+				  console.log(this.orders[item].price);
+				  this.orders[item].totalPrice -= this.orders[item].price;
+				  if(this.orders[item].quantity === 0) {
+					this.orders.splice(item, 1);
+				  }
+				  break;
+				}
+			}
 			this.updateTotal();
 			this.renderOrders();
 		}
 	}
-
-	handleDecrementQuantity(item) {
-		this.orders.item.quantity--;
-		this.orders.item.totalPrice-=item.price;
-		this.updateTotal();
-		this.renderOrders();
-	}
-
-	handleIncrementQuantity(item) {
-		this.orders.item.quantity++;
-		this.orders.item.totalPrice+=item.price;
-		this.updateTotal();
-		this.renderOrders();
-	}
-
-	updateTotal() {
-		console.log(this.orders);
-		for (let item of this.orders) {
-			this.total = item.totalPrice;
+	handleIncrease(event) {
+		if (event.target.matches('.increase-btn')) {
+			let title = event.target.dataset.title;
+			for(let item in this.orders) {
+				if(this.orders[item].title === title) {
+				  this.orders[item].quantity++;
+				  this.orders[item].totalPrice += this.orders[item].price;
+				  break;
+				}
+			}
+			this.updateTotal();
+			this.renderOrders();
 		}
-		console.log(this.total);
-		const totalPriceH4 = document.querySelector('.total');
-		totalPriceH4.innerText = `Total: ${this.total}`;
+	}
+	handleRemoveItem(event) {
+		if (event.target.matches('.remove-btn')) {
+			let title = event.target.dataset.item;
+				for(var item in this.orders) {
+					if (item.title === title) {
+						this.orders.splice(item, 1);
+						break;
+					}
+				}
+			this.updateTotal();
+			this.renderOrders();
+		}
 	}
 
 	handleHide() {
@@ -183,18 +200,29 @@ class Cart {
 		const sidebar = document.querySelector('.sidebar');
 		sidebar.classList.add('collapsed');
 	}
+
+	updateTotal() {
+		let cartTotal = 0;
+		for (let item of this.orders) {
+			cartTotal += item.totalPrice;
+		}
+		const total = document.querySelector('.total');
+		total.innerText = `Total: ${cartTotal.toFixed(2)}`;
+	}
+
 	renderOrders() {
 		const ordersContainer = document.querySelector('.orders-container');
+		ordersContainer.innerHTML ="";
 		for (let item of this.orders) {
-			ordersContainer.innerHTML = `
+			ordersContainer.innerHTML += `
 			<div class="order">
             	<h4>${item.title}</h4>
              	<div class="qty-control">
-                	<button class="decrease-btn"> - </button>
+                	<button class="decrease-btn" data-title="${item.title}"> - </button>
                 	<p class="qty">qty: <span>${item.quantity}</span></p>
-                	<button class="increase-btn"> + </button>
-                	<p class="item-price">$${item.totalPrice}</p>
-                <button class="remove-btn" data-id='${JSON.stringify(item)}'>remove</button>
+                	<button class="increase-btn" data-title="${item.title}"> + </button>
+                	<p class="item-price">$${item.totalPrice.toFixed(2)}</p>
+                <button class="remove-btn" data-title="${item.title}">remove</button>
               </div>
           	</div>
 			`
@@ -203,13 +231,15 @@ class Cart {
 	render() {
 		const sidebarOpenButton = document.querySelector('.sidebar-open-btn');
 		const sidebarCloseButton = document.querySelector('.sidebar-close-btn')
-		const removeItemButton = document.querySelector('.remove-btn');
-		const addToCartButton = document.querySelector('.add-btn');
+		const ordersContainer = document.querySelector('.orders-container');
+		const menuContainer = document.querySelector('.section-center');
 
-		addToCartButton.addEventListener('click', this.handLeAddItem.bind(this));
+		ordersContainer.addEventListener('click', this.handleDecrease.bind(this));
+		ordersContainer.addEventListener('click', this.handleIncrease.bind(this));
+		ordersContainer.addEventListener('click', this.handleRemoveItem.bind(this));
+		menuContainer.addEventListener('click', this.handLeAddItem.bind(this));
 		sidebarOpenButton.addEventListener('click', this.handleShow.bind(this));
 		sidebarCloseButton.addEventListener('click', this.handleHide.bind(this));
-		// removeItemButton.addEventListener('click', this.handleRemoveItem.bind(this));
 	}
 }
 
