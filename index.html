@@ -6,28 +6,54 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Restaurant menu</title>
     <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css">
   </head>
   <body>
     <section class="menu">
       <!-- title -->
       <div class="title">
-        <h2>our menu</h2>
-        <div class="underline"></div>
+        <div class="wrapper">
+          <div class="search_box">
+            <div class="dropdown">
+              <div class="default_option">
+                <select name="" id="priceSelect">
+                  <option value="price">Price</option>
+                  <option value="15">> $15</option>
+                  <option value="30">> $30</option>
+                  <option value="40">> $40</option>
+                </select>
+              </div>
+            </div>
+            <div class="search_field">
+              <input type="text" id="search" placeholder="Search..." />
+             <i class="fa fa-search"></i>
+            </div>
+          </div>
+          <p id="alert"></p>
+        </div>
+        <div class="our-menu">
+          <h2>our menu</h2>
+          <div class="underline"></div>
+        </div>
+        <!-- Added cart starts-->
+        <div class="cart">
+          <i class="fas fa-shopping-cart fa-lg"></i>
+          <div id='totalItems'>Total Items: <span id='totItem'></span>  </div>
+          <div id='totalPrice'>Total price: $ <span id='totPrice'></span></div>
+        </div>
+        <!-- Added cart ends-->
       </div>
       <!-- filter buttons -->
       <div class="btn-container">
-        <button class="filter-btn" type="button" data-id="all">all</button
-        ><button class="filter-btn" type="button" data-id="breakfast">
-          breakfast</button
-        ><button class="filter-btn" type="button" data-id="lunch">lunch</button
-        ><button class="filter-btn" type="button" data-id="shakes">
-          shakes</button
-        ><button class="filter-btn" type="button" data-id="dinner">
-          dinner
-        </button>
+      <!-- menu buttons displayed dynamically with JS -->
       </div>
       <!-- menu items -->
       <div class="section-center">
+        <!--render data with js-->
       </div>
     </section>
     <script src="script.js"></script>
