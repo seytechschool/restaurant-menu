@@ -3,14 +3,12 @@
 Fonts
 ===============
 */
-@import url("https://fonts.googleapis.com/css?family=Open+Sans|Roboto:400,700&display=swap");
-
+@import url("https://fonts.googleapis.com/css?family=Open+Sans%7CRoboto:400,700&display=swap");
 /*
 =============== 
 Variables
 ===============
 */
-
 :root {
   /* dark shades of primary color*/
   --clr-primary-1: hsl(205, 86%, 17%);
@@ -59,7 +57,6 @@ Variables
 Global Styles
 ===============
 */
-
 *,
 ::after,
 ::before {
@@ -86,7 +83,6 @@ img:not(.logo) {
 img {
   display: block;
 }
-
 h1,
 h2,
 h3,
@@ -137,7 +133,6 @@ p {
   }
 }
 /*  global classes */
-
 .btn {
   text-transform: uppercase;
   background: transparent;
@@ -160,7 +155,6 @@ p {
 .section {
   padding: 5rem 0;
 }
-
 main {
   min-height: 100vh;
   display: grid;
@@ -171,13 +165,13 @@ main {
 Menu
 ===============
 */
-
 .menu {
   padding: 5rem 0;
 }
 .title {
   text-align: center;
   margin-bottom: 2rem;
+  display: flex;
 }
 .underline {
   width: 5rem;
@@ -252,6 +246,7 @@ Menu
 }
 .wrapper{
   margin-left: 100px;
+  /* flex: 1; */
 }
 .wrapper .search_box{
   width: 370px;
@@ -299,6 +294,63 @@ Menu
 }
 .wrapper input::placeholder{
   color: #c59d5f;
+}
+.addToCart{
+  position: relative;
+  top:20px;
+  background: transparent;
+  border-color: var(--clr-gold);
+  font-size: 1rem;
+  text-transform: capitalize;
+  margin: 0 0.5rem;
+  letter-spacing: 1px;
+  border-radius: var(--radius);
+  padding: 0.375rem 0.75rem;
+  color: var(--clr-gold);
+  cursor: pointer;
+  transition: var(--transition);
+}
+.our-menu {
+  flex: 1;
+}
+.cart{
+  padding: 10px;
+  box-shadow: 0 8px 6px -10px #ffdcb3;
+  background: white;
+  border-color: var(--clr-gold);
+  font-size: 0.8rem;
+  text-transform: capitalize;
+  margin: 0 0.5rem;
+  letter-spacing: 1px;
+  border-radius: 5px;
+  color: var(--clr-gold);
+  cursor: pointer;
+  transition: var(--transition);
+  width: 400px;
+  border: 2px solid #c59d5f;
+  height: 50px;
+  display: flex;
+  box-shadow: 0 8px 6px -10px #ffdcb3;
+}
+#totItem {
+  margin-right: 10px;
+  padding-right: 10px;
+  width: 200px;
+  border-right: 2px solid #c59d5f;
+  position: relative;
+  color: var(--clr-grey-1);
+}
+#totalItems {
+  margin-right: 10px;
+  color: #c59d5f;
+  position: relative;
+}
+#totPrice {
+  font-weight: bold;
+  color: var(--clr-grey-1);
+}
+.fa-shopping-cart {
+  margin-right: 10px;
 }
 #priceSelect{
   color: #704d19;
