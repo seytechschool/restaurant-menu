@@ -242,6 +242,10 @@ Menu
   margin-bottom: 0;
   padding-top: 1rem;
 }
+.active {
+  background: var(--clr-gold);
+  color: var(--clr-white);
+}
 
 @media screen and (min-width: 768px) {
   .menu-item {
