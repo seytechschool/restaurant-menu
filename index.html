@@ -5,15 +5,42 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Restaurant menu</title>
+    <link
+			rel="stylesheet"
+			href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+			integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
+			crossorigin="anonymous"
+		/>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <section class="menu">
+      	<!-- cart -->
+		<div class="cart-total-price">
+				<div class="quantity"></div>
+				<div class="myCart">
+					<i class="far fa-shopping-cart"></i>
+					<ul class="inCart"></ul>		
+				</div>
+				<button class="total" style="display: none;"></button>
+			</div>
       <!-- title -->
       <div class="title">
         <h2>our menu</h2>
         <div class="underline"></div>
       </div>
+
+      <div class="form">
+        <div class="searching">
+            <input class="search" type="search" placeholder=" search...">
+            <!--<button class="search-btn">Search</button>-->
+        </div>
+    </div>
+    <div class="minmax">
+      <input class="min" placeholder="$min" type="text">
+      <input class="max" placeholder="$max" type="text">
+      <button class="minmaxxbtn" type="submit">Submit</button>
+    </div>
       <!-- filter buttons -->
       <div class="btn-container">
         <button class="filter-btn" type="button" data-id="all">all</button
